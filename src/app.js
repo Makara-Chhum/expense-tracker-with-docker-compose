@@ -13,7 +13,7 @@ dotenv.config();
 dbConnect();
 
 app.get('/', (req, res) => {
-    res.json('Welcome to expense-tracker');
+    res.json({msg: 'Welcome to expense-tracker'});
 })
 
 //middleware
