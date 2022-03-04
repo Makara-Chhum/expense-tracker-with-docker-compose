@@ -12,6 +12,10 @@ dotenv.config();
 //dbConnected
 dbConnect();
 
+app.get('/', (req, res) => {
+    res.json('Welcome to expense-tracker');
+})
+
 //middleware
 app.use(express.json());
 
