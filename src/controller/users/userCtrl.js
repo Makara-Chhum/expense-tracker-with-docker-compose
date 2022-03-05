@@ -30,6 +30,15 @@ const fetchUsersCtrl = expressAsyncHandler(async (req, res) => {
     }
 });
 
+//fetch detail user
+// const fetchDetailuserCtrl = expressAsyncHandler(async (req, res) =>{
+//     try {
+        
+//     } catch (error) {
+        
+//     }
+// })
+
 //Login User
 const loginUserCtrl = expressAsyncHandler(async (req, res) => {
     const {email, password} = req?.body;
