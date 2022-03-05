@@ -15,7 +15,7 @@ const createIncCtrl = expressAsyncHandler(async (req, res) => {
 //fetch all income
 const fetchAllIncCtrl = expressAsyncHandler(async (req, res) => {
     try {
-        const income = await Income.find();
+        const income = await Income.find({});
         res.json(income);
     } catch (error) {
         console.log(error);

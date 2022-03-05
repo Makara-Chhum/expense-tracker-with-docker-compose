@@ -30,14 +30,16 @@ const fetchUsersCtrl = expressAsyncHandler(async (req, res) => {
     }
 });
 
-//fetch detail user
-// const fetchDetailuserCtrl = expressAsyncHandler(async (req, res) =>{
-//     try {
-        
-//     } catch (error) {
-        
-//     }
-// })
+//fetch single user
+const fetchDetailuserCtrl = expressAsyncHandler(async (req, res) =>{
+    const { id } = req?.params
+    try {
+        const user = await User.findById(id);
+        res.json(user);
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 //Login User
 const loginUserCtrl = expressAsyncHandler(async (req, res) => {
@@ -67,4 +69,4 @@ const loginUserCtrl = expressAsyncHandler(async (req, res) => {
 });
 
 
-module.exports = { registerUser, fetchUsersCtrl, loginUserCtrl };
+module.exports = { registerUser, fetchUsersCtrl, fetchDetailuserCtrl, loginUserCtrl };
