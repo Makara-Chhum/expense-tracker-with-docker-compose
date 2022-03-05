@@ -1,7 +1,7 @@
 const expressAsyncHandler = require("express-async-handler");
 const Income = require("../../model/income");
 
-//create 
+//create Income
 const createIncCtrl = expressAsyncHandler(async (req, res) => {
     const {title, amount, description, user} = req?.body;
     try {
@@ -33,4 +33,24 @@ const fetchDetailIncCtrl = expressAsyncHandler(async (req, res) => {
     }
 });
 
-module.exports = { createIncCtrl , fetchAllIncCtrl , fetchDetailIncCtrl};
+//Update income
+const updateIncCtrl = expressAsyncHandler(async (req, res) => {
+    const { id } = req?.params;
+    const {title, amount, description} = req?.body;
+    try {
+        const income = await Income.findByIdAndUpdate(id, {
+            title,
+            amount,
+            description
+        },
+        { new: true }
+        );
+        res.json(income);
+    } catch (error) {
+        console.log(error);
+    }
+    
+
+})
+
+module.exports = { createIncCtrl , fetchAllIncCtrl , fetchDetailIncCtrl, updateIncCtrl};
