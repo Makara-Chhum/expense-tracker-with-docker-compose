@@ -43,6 +43,11 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
+//Verify Password
+userSchema.methods.isPasswordMatch = async function(enteredPasswords) {
+    return await bcrypt.compare(enteredPasswords, this.password);
+}
+
 //compile schema into models
 const User = mongoose.model('User', userSchema);
 
