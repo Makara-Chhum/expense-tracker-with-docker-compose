@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-//create Incomeschema
-const IncomeSchema = mongoose.Schema({
+
+//create Expenseschema
+const ExpenseSchema = mongoose.Schema({
     title: {
         require: [true, 'Title is require'],
         type: String,
@@ -13,7 +14,7 @@ const IncomeSchema = mongoose.Schema({
     },
     type: {
         type: String,
-        default: "income"
+        default: "expense",
     },
     amount: {
         require: [true, 'Amount is require'],
@@ -30,10 +31,10 @@ const IncomeSchema = mongoose.Schema({
     }
 );
 
-//paginate
-IncomeSchema.plugin(mongoosePaginate);
+//paginate 
+ExpenseSchema.plugin(mongoosePaginate);
 
 //compile the schema into the db
-const Income = mongoose.model('Income', IncomeSchema);
+const Expense = mongoose.model('Expense', ExpenseSchema);
 
-module.exports = Income;
+module.exports = Expense;
