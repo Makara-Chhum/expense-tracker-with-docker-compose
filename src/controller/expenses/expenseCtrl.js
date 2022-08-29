@@ -1,7 +1,6 @@
 const expressAsyncHandler = require("express-async-handler");
 const Expense = require("../../model/expense");
 
-
 //create Expense
 const createExpCtrl = expressAsyncHandler(async (req, res) => {
     const {title, amount, description, user} = req?.body;

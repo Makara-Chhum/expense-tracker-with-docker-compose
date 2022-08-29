@@ -30,7 +30,7 @@ app.use('/api/users', userRoute);
 app.use('/api/income', incomeRoute);
 
 //Expense rooute
-app.use('/api/expense', expenseRoute);
+app.use('/api/expenses', expenseRoute);
 
 //Error Handler
 app.use(notFound);

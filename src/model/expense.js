@@ -32,7 +32,7 @@ const ExpenseSchema = mongoose.Schema({
 );
 
 //paginate 
-ExpenseSchema.plugin(mongoosePaginate);
+ExpenseSchema.plugin(mongoosePaginate);     
 
 //compile the schema into the db
 const Expense = mongoose.model('Expense', ExpenseSchema);
