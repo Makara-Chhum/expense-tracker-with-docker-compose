@@ -1,0 +1,22 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm run watch --prefix expense-server-api",
+    "client": "npm run start --prefix client",
+    "watch": "npm run server & npm run client "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Makara-Chhum/expense-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Makara-Chhum/expense-tracker/issues"
+  },
+  "homepage": "https://github.com/Makara-Chhum/expense-tracker#readme"
+}
