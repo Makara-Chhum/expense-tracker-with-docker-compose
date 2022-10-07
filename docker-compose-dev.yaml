@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  #client service
+  reatch-app:
+    image: react-app
+    build: ./client/
+    stdin_open: true
+    ports: 
+      - "3000:3000"
+    networks:
+      - mern-app
+    volumes:
+      - ./client:/usr/src/app/
+      - /usr/src/app/node-modules
+  #Node api service
+  api-server:
+    image: api-server
+    build: ./server/
+    ports: 
+      - "5000:5000"
+    networks:
+      - mern-app
+    volumes:
+      - ./server:/usr/src/app/
+      - /usr/src/app/node-modules
+    depends_on:
+      - mongo
+  #Mongon Service
+  mongo:
+    image: mongo:latest
+    ports: 
+      - "27017:27017"
+    networks: 
+      - mern-app
+    volumes: 
+      - mongo-data:/data/db
+networks:
+  mern-app:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
+

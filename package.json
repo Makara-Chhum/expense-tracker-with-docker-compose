@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "npm run watch --prefix expense-server-api",
+    "server": "npm run watch --prefix server",
     "client": "npm run start --prefix client",
     "watch": "npm run server & npm run client "
   },

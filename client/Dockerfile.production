@@ -1,0 +1,14 @@
+FROM node:14-slim
+
+WORKDIR /usr/share/app 
+
+COPY package.json ./
+COPY package-lock.json ./
+
+RUN npm install 
+
+COPY . . 
+
+RUN npm build
+
+#Copy react app into Secondary Caddy stage

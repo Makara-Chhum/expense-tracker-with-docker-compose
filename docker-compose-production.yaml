@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  #client service
+  reatch-app:
+    image: react-app-production
+    restart: unless-stopped
+    stdin_open: true
+    ports: 
+      - "80:80"
+      - "443:443"
+    networks:
+      - mern-app
+  #Node api service
+  api-server:
+    image: api-server-production
+    restart: unless-stopped
+    ports: 
+      - "5000:5000"
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+#For database , the production will move to database mongodb 
+
+networks:
+  mern-app:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
+

@@ -1,0 +1,10 @@
+build-dev:
+	docker build -t react-app .
+
+build-local:
+	docker build /
+	-t react-app-production:local /
+	-f Dockerfile.production .
+
+build-production: 
+	docker build -t react-app-production -f Dockerfile.production .
