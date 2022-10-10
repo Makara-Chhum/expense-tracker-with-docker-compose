@@ -2,10 +2,9 @@ version: '3'
 
 services:
   #client service
-  reatch-app:
-    image: react-app-production
+  react-app:
+    image: react-app-production:${ENV}
     restart: unless-stopped
-    stdin_open: true
     ports: 
       - "80:80"
       - "443:443"
@@ -13,8 +12,9 @@ services:
       - mern-app
   #Node api service
   api-server:
-    image: api-server-production
+    image: api-server
     restart: unless-stopped
+    env_file: ./server/src/config/${ENV}.env
     ports: 
       - "5000:5000"
     networks:

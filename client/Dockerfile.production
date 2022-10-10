@@ -1,6 +1,7 @@
-FROM node:14-slim
+##first stage
+FROM node:14-slim AS builder
 
-WORKDIR /usr/share/app 
+WORKDIR /usr/src/app 
 
 COPY package.json ./
 COPY package-lock.json ./
@@ -9,6 +10,21 @@ RUN npm install
 
 COPY . . 
 
-RUN npm build
+ARG BASE_URL
+ENV REACT_APP_BASE_URL = ${BASE_URL}
+
+RUN npm run build
 
 #Copy react app into Secondary Caddy stage
+## Second stage
+FROM caddy:2.1.1-alpine
+
+ARG CADDYFILES
+
+COPY ${CADDYFILES} /etc/caddy/Caddyfile
+
+COPY --from=builder /usr/src/app/build/ /srv
+
+EXPOSE 80
+
+EXPOSE 443
