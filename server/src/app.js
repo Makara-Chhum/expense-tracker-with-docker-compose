@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.json({ msg: "Welcome Expenses tracker API v2" });
+  res.json({ msg: "Welcome Expenses tracker API v3" });
 });
 // users routes
 app.use("/api/users", userRoute);

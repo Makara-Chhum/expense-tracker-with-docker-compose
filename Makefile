@@ -5,6 +5,9 @@ build-dev:
 run-dev:
 	ENV=dev docker compose -f docker-compose-dev.yaml up
 
+stop-dev:
+	ENV=dev docker compose -f docker-compose-dev.yaml down
+
 ################################
 
 build-local:
@@ -13,6 +16,7 @@ build-local:
 
 run-local:
 	ENV=local docker compose -f docker-compose-production.yaml up
+
 
 ################################
 

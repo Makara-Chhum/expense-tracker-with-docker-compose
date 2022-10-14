@@ -2,7 +2,7 @@ version: '3'
 
 services:
   #client service
-  reatch-app:
+  react-app:
     image: react-app
     build: ./client/
     stdin_open: true
