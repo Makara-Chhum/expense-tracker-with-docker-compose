@@ -10,6 +10,9 @@ services:
       - "443:443"
     networks:
       - mern-app
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
   #Node api service
   api-server:
     image: api-server
@@ -27,5 +30,9 @@ networks:
 
 volumes:
   mongo-data:
+    driver: local
+  caddy-data: 
+    driver: local
+  Caddy-config:
     driver: local
 

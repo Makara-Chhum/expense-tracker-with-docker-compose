@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const dbConnect = require("./config/dbConnect");
+const dbConnect = require("./db/dbConnect");
 const { errorHandler, notFound } = require("./middleware/errorMiddleware");
 const userRoute = require("./routes/users/usersRoute");
 const incomeRoute = require("./routes/income/incomeRoutes");

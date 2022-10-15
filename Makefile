@@ -17,6 +17,9 @@ build-local:
 run-local:
 	ENV=local docker compose -f docker-compose-production.yaml up
 
+stop-local:
+	ENV=local docker compose -f docker-compose-production.yaml down
+
 
 ################################
 
@@ -26,3 +29,14 @@ build-production:
 
 run-production:
 	ENV=production docker compose -f docker-compose-production.yaml up 
+
+stop-production:
+	ENV=production docker compose -f docker-compose-production.yaml down
+
+SSH_STRING=root@public_ip
+
+ssh:
+	ssh ${SSH_STRING}
+
+conpy-files:
+	scp -r  ./*	${SSH_STRING}:/root/
