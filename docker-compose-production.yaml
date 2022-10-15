@@ -19,8 +19,6 @@ services:
       - "5000:5000"
     networks:
       - mern-app
-    depends_on:
-      - mongo
 #For database , the production will move to database mongodb 
 
 networks:

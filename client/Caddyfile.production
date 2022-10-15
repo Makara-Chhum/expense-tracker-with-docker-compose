@@ -2,7 +2,7 @@ ec2-18-143-140-95.ap-southeast-1.compute.amazonaws.com:443{
     root * /srv
     route {
         reverse_proxy /api* api-server:5000
-        try_file {path} {path}/ /index.html
+        try_files {path} {path} /index.html
         file_server
     }
 }
